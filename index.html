@@ -3,72 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GW Asesoría Financiera</title>
+<title>GW Asesoría Financiera | Tijuana · Frontera</title>
+<meta name="description" content="Educación financiera para clase media y baja en Tijuana. Guías, plantillas y mini-cursos para manejar mejor tu dinero en la frontera.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+:root{--navy:#1a2040;--maroon:#8B2635;--gold:#C9963A;--bg:#0f1220;--surface:rgba(255,255,255,.05);--border:rgba(255,255,255,.08);--text:rgba(255,255,255,.7);--muted:rgba(255,255,255,.35);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html,body{height:100%;background:#111827;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;font-family:'DM Sans',sans-serif;}
-.outer{width:100%;max-width:430px;min-height:100vh;background:#0f1220;display:flex;flex-direction:column;position:relative;}
-/* STATUS BAR */
-.statusbar{height:46px;background:#0f1220;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 8px;position:sticky;top:0;z-index:50;flex-shrink:0;}
+html,body{min-height:100vh;background:#111827;display:flex;justify-content:center;font-family:'DM Sans',sans-serif;}
+.outer{width:100%;max-width:430px;min-height:100vh;background:var(--bg);display:flex;flex-direction:column;position:relative;}
+.statusbar{height:46px;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 8px;position:sticky;top:0;z-index:50;flex-shrink:0;}
 .s-time{color:#fff;font-size:14px;font-weight:700;}
 .s-icons{display:flex;gap:5px;align-items:center;}
-/* MAIN SCREEN */
-.screen{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:80px;}
+.screen{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:90px;}
 .screen::-webkit-scrollbar{display:none;}
-/* BOTTOM NAV */
-.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(10,12,24,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);display:flex;padding:8px 0 18px;z-index:100;}
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(9,11,22,.98);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:8px 0 20px;z-index:100;}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 0;}
 .ni-icon{font-size:20px;transition:transform .2s;}
 .ni.active .ni-icon{transform:scale(1.2);}
 .ni-label{font-size:9.5px;font-weight:700;letter-spacing:.3px;transition:color .2s;}
-.ni.active .ni-label{color:#C9963A;}
-.ni:not(.active) .ni-label{color:rgba(255,255,255,.28);}
+.ni.active .ni-label{color:var(--gold);}
+.ni:not(.active) .ni-label{color:var(--muted);}
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:94px;right:calc(50% - 210px);width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;z-index:200;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s;}
+.wa-float:hover{transform:scale(1.08);}
+.wa-pulse{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.4);animation:wapulse 2s infinite;}
+@keyframes wapulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.4);opacity:0}}
 /* HERO */
-.hero{margin:14px;border-radius:22px;padding:26px 22px 24px;background:linear-gradient(135deg,#1f2850,#2d1535);position:relative;overflow:hidden;}
-.hc1{position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(139,38,53,.18);}
-.hc2{position:absolute;bottom:-40px;left:-30px;width:130px;height:130px;border-radius:50%;background:rgba(201,150,58,.08);}
-.h-greet{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:4px;}
-.h-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;position:relative;z-index:1;}
-.h-name span{color:#C9963A;}
-.h-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,150,58,.13);border:1px solid rgba(201,150,58,.28);border-radius:100px;padding:5px 14px;font-size:10.5px;font-weight:700;color:#C9963A;}
-.hdot{width:5px;height:5px;border-radius:50%;background:#C9963A;animation:blink 2s infinite;}
+.hero{margin:14px;border-radius:22px;padding:26px 22px 24px;background:linear-gradient(135deg,#1a2555,#2e1230);position:relative;overflow:hidden;}
+.hero-ring{position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;border:40px solid rgba(139,38,53,.15);}
+.hero-ring2{position:absolute;bottom:-50px;left:-40px;width:160px;height:160px;border-radius:50%;border:30px solid rgba(201,150,58,.08);}
+.brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px;position:relative;z-index:1;}
+.brand-badge{width:42px;height:42px;border-radius:10px;background:var(--maroon);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:#fff;flex-shrink:0;}
+.brand-name{font-size:13px;font-weight:700;color:#fff;}
+.brand-sub{font-size:10px;font-weight:500;color:var(--gold);letter-spacing:.8px;text-transform:uppercase;}
+.h-headline{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px;position:relative;z-index:1;}
+.h-headline em{color:var(--gold);font-style:normal;}
+.h-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:16px;position:relative;z-index:1;}
+.h-badges{display:flex;gap:7px;flex-wrap:wrap;position:relative;z-index:1;}
+.hb{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:4px 11px;font-size:10px;font-weight:600;color:rgba(255,255,255,.75);}
+.hb.gold{background:rgba(201,150,58,.13);border-color:rgba(201,150,58,.3);color:var(--gold);}
+.hdot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 2s infinite;flex-shrink:0;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* SECTION HEADER */
+/* SECTIONS */
 .sh{padding:16px 14px 10px;}
-.sh-tag{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C9963A;margin-bottom:5px;}
+.sh-tag{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
 .sh-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.2;}
-.sh-sub{font-size:11.5px;color:rgba(255,255,255,.38);margin-top:4px;line-height:1.5;}
-/* QUICK GRID */
+.sh-sub{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+/* QUICK */
 .qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 14px 16px;}
-.qi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;}
-.qi:active{transform:scale(.95);background:rgba(255,255,255,.09);}
+.qi{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;}
+.qi:active{transform:scale(.95);}
 .qi-e{font-size:20px;margin-bottom:5px;}
-.qi-l{font-size:9.5px;font-weight:600;color:rgba(255,255,255,.5);line-height:1.3;}
-/* STAT STRIP */
+.qi-l{font-size:9.5px;font-weight:600;color:var(--muted);line-height:1.3;}
+/* STATS */
 .sstrip{display:flex;gap:8px;padding:0 14px 16px;overflow-x:auto;}
 .sstrip::-webkit-scrollbar{display:none;}
-.spill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 16px;flex-shrink:0;min-width:115px;}
+.spill{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;flex-shrink:0;min-width:115px;}
 .spill-v{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;}
-.spill-l{font-size:10px;color:rgba(255,255,255,.38);margin-top:2px;}
-/* FEATURED SCROLL */
+.spill-l{font-size:10px;color:var(--muted);margin-top:2px;}
+/* FEATURED */
 .fscroll{display:flex;gap:10px;padding:0 14px 16px;overflow-x:auto;}
 .fscroll::-webkit-scrollbar{display:none;}
-.fc{flex-shrink:0;width:165px;border-radius:16px;padding:16px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.08);}
-.fc:hover{transform:translateY(-2px);}
+.fc{flex-shrink:0;width:165px;border-radius:16px;padding:16px;cursor:pointer;transition:all .2s;border:1px solid var(--border);}
+.fc:active{transform:scale(.97);}
 .fc-e{font-size:26px;margin-bottom:10px;}
 .fc-p{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;}
 .fc-t{font-size:11px;font-weight:600;color:rgba(255,255,255,.8);margin-top:3px;line-height:1.3;}
 .fc-tg{font-size:9px;font-weight:700;margin-top:7px;}
+/* LEAD FORM */
+.lead-wrap{margin:4px 14px 16px;background:linear-gradient(135deg,rgba(26,32,64,.8),rgba(45,18,48,.6));border:1px solid rgba(201,150,58,.25);border-radius:18px;overflow:hidden;}
+.lead-head{background:var(--maroon);padding:16px 18px;}
+.lead-head-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:3px;}
+.lead-head-sub{font-size:11px;color:rgba(255,255,255,.7);}
+.lead-body{padding:18px;}
+.flbl{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px;display:block;}
+.finput{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;margin-bottom:12px;transition:border-color .2s;}
+.finput::placeholder{color:rgba(255,255,255,.3);}
+.finput:focus{border-color:rgba(201,150,58,.5);}
+.fselect{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;margin-bottom:16px;appearance:none;}
+.fselect option{background:#1a2040;color:#fff;}
+.btn-lead{width:100%;padding:14px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#fff;background:var(--maroon);cursor:pointer;transition:all .2s;}
+.btn-lead:active{transform:scale(.98);}
+.btn-wa{width:100%;padding:13px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;background:#25D366;cursor:pointer;margin-top:8px;transition:all .2s;}
+.form-note{font-size:10px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5;}
+.lead-success{display:none;padding:20px;text-align:center;}
+.lsi{font-size:40px;margin-bottom:10px;}
+.lst{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;}
+.lss{font-size:12px;color:var(--muted);line-height:1.6;}
 /* PRODUCTS */
 .pfilt{display:flex;gap:7px;padding:0 14px 14px;overflow-x:auto;}
 .pfilt::-webkit-scrollbar{display:none;}
 .fbtn{flex-shrink:0;padding:6px 14px;border-radius:100px;border:none;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;}
-.fbtn.on{background:#8B2635;color:#fff;}
-.fbtn:not(.on){background:rgba(255,255,255,.07);color:rgba(255,255,255,.45);}
+.fbtn.on{background:var(--maroon);color:#fff;}
+.fbtn:not(.on){background:rgba(255,255,255,.07);color:var(--muted);}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 14px;}
-.pcard{border-radius:14px;padding:14px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;}
+.pcard{border-radius:14px;padding:14px;cursor:pointer;transition:all .2s;border:1px solid var(--border);position:relative;overflow:hidden;}
 .pcard:active{transform:scale(.96);}
 .pcard-bar{position:absolute;top:0;left:0;right:0;height:3px;}
 .pcard-e{font-size:24px;margin-bottom:8px;display:block;}
@@ -76,52 +106,52 @@ html,body{height:100%;background:#111827;display:flex;justify-content:center;ali
 .pcard-t{font-size:11px;font-weight:600;color:rgba(255,255,255,.85);margin-top:3px;line-height:1.3;}
 .pcard-b{display:inline-block;font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:100px;margin-top:6px;background:rgba(255,255,255,.09);color:rgba(255,255,255,.6);}
 /* PLAN */
-.pitem{margin:0 14px 10px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07);}
+.pitem{margin:0 14px 10px;border-radius:14px;overflow:hidden;border:1px solid var(--border);}
 .phdr{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;background:rgba(255,255,255,.04);}
 .pdot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
 .pname{font-size:13px;font-weight:700;color:#fff;}
-.pwks{font-size:10px;color:#C9963A;font-weight:600;margin-top:2px;}
-.parr{font-size:18px;color:rgba(255,255,255,.28);margin-left:auto;transition:transform .25s;}
-.ptasks{background:rgba(0,0,0,.2);padding:4px 14px 10px;display:none;}
-.ptask{display:flex;gap:7px;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.5;}
+.pwks{font-size:10px;color:var(--gold);font-weight:600;margin-top:2px;}
+.parr{font-size:18px;color:var(--muted);margin-left:auto;transition:transform .25s;}
+.ptasks-wrap{background:rgba(0,0,0,.2);padding:4px 14px 10px;display:none;}
+.ptask{display:flex;gap:7px;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11.5px;color:var(--text);line-height:1.5;}
 .ptask:last-child{border-bottom:none;}
-.ptask::before{content:'→';color:#C9963A;flex-shrink:0;margin-top:1px;}
+.ptask::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px;}
 /* OPP */
 .ogrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 16px;}
-.ocard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 13px;cursor:pointer;transition:all .2s;}
-.ocard:hover{background:rgba(26,32,64,.9);border-color:#C9963A;}
+.ocard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 13px;cursor:pointer;transition:all .2s;}
+.ocard:active{background:rgba(26,32,64,.9);border-color:var(--gold);}
 .ocard-e{font-size:22px;margin-bottom:8px;}
 .ocard-t{font-size:11px;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.3;}
-.ocard-v{font-size:10px;font-weight:600;color:#C9963A;}
+.ocard-v{font-size:10px;font-weight:600;color:var(--gold);}
 /* FINANCE */
 .flist{padding:0 14px 16px;display:flex;flex-direction:column;gap:8px;}
-.frow{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px;}
+.frow{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;}
 .ftop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;}
-.fper{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.42);letter-spacing:.5px;text-transform:uppercase;}
+.fper{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
 .famt{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;}
 .fbarbg{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;}
 .fbarf{height:100%;border-radius:3px;}
-/* PROFILE */
-.pav{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#8B2635,#1a2040);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px;font-family:'Playfair Display',serif;font-weight:900;color:#C9963A;}
-.pcard2{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;margin-bottom:12px;}
-.prow{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);}
-.prow:last-child{border-bottom:none;}
-.pre{font-size:18px;width:28px;text-align:center;}
-.plbl{font-size:10px;color:rgba(255,255,255,.32);margin-bottom:2px;}
-.pval{font-size:12.5px;font-weight:600;color:#fff;}
+/* CONTACT */
+.contact-card{margin:0 14px 16px;background:linear-gradient(135deg,rgba(37,211,102,.08),rgba(37,211,102,.03));border:1px solid rgba(37,211,102,.2);border-radius:16px;padding:18px;}
+.ctitle{font-size:11px;font-weight:700;color:#25D366;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.crow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer;}
+.crow:last-child{border-bottom:none;}
+.cicon{font-size:18px;width:32px;text-align:center;}
+.clbl{font-size:10px;color:var(--muted);margin-bottom:1px;}
+.cval{font-size:12.5px;font-weight:600;color:#fff;}
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:500;align-items:flex-end;justify-content:center;}
 .modal-overlay.open{display:flex;}
 .msheet{background:#171b30;border-radius:24px 24px 0 0;width:100%;max-width:430px;padding:22px 20px 36px;max-height:88vh;overflow-y:auto;}
 .msheet::-webkit-scrollbar{display:none;}
 .mhandle{width:36px;height:3px;background:rgba(255,255,255,.14);border-radius:2px;margin:0 auto 18px;}
-.mclose{width:100%;margin-top:8px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:11px;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;}
-.mbuy{width:100%;padding:14px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#fff;cursor:pointer;}
+.mbuy{width:100%;padding:14px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#fff;cursor:pointer;margin-top:4px;}
+.mwa{width:100%;padding:12px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;background:#25D366;cursor:pointer;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.mclose{width:100%;margin-top:8px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:11px;color:var(--muted);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;}
 </style>
 </head>
 <body>
 <div class="outer">
-  <!-- STATUS BAR -->
   <div class="statusbar">
     <span class="s-time" id="clock">9:41</span>
     <div class="s-icons">
@@ -130,243 +160,151 @@ html,body{height:100%;background:#111827;display:flex;justify-content:center;ali
       <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x=".5" y=".5" width="19" height="10" rx="2.5" stroke="white" stroke-width="1.1" opacity=".5"/><rect x="1.5" y="1.5" width="15" height="8" rx="1.8" fill="white"/><rect x="20.5" y="3" width="1.5" height="5" rx=".75" fill="white" opacity=".5"/></svg>
     </div>
   </div>
-
-  <!-- SCREEN -->
   <div class="screen" id="screen"></div>
-
-  <!-- BOTTOM NAV -->
   <nav class="bnav">
     <div class="ni active" id="nav-home" onclick="go('home')"><div class="ni-icon">🏠</div><div class="ni-label">Inicio</div></div>
     <div class="ni" id="nav-productos" onclick="go('productos')"><div class="ni-icon">📦</div><div class="ni-label">Productos</div></div>
     <div class="ni" id="nav-plan" onclick="go('plan')"><div class="ni-icon">🗺</div><div class="ni-label">Ruta</div></div>
     <div class="ni" id="nav-negocio" onclick="go('negocio')"><div class="ni-icon">💼</div><div class="ni-label">Negocio</div></div>
-    <div class="ni" id="nav-perfil" onclick="go('perfil')"><div class="ni-icon">👤</div><div class="ni-label">Perfil</div></div>
+    <div class="ni" id="nav-contacto" onclick="go('contacto')"><div class="ni-icon">✉️</div><div class="ni-label">Contacto</div></div>
   </nav>
 </div>
-
-<!-- MODAL -->
+<div class="wa-float" onclick="openWA('Hola! Vi la app de GW Asesoria Financiera y me interesa informacion sobre sus productos.')">
+  <div class="wa-pulse"></div>💬
+</div>
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="msheet" id="msheet"></div>
 </div>
-
 <script>
-// ── DATA ─────────────────────────────────────────────────────────────────
-const products = [
-  {id:1,e:'📊',title:'Presupuesto Fronterizo',sub:'Plantilla bimoneda MXN/USD',price:'$149',tag:'⭐ Lanzar primero',color:'#8B2635',desc:'Controla tus gastos en pesos y dólares con calculadora de tipo de cambio integrada. Ninguna app genérica resuelve este problema tijuanense.',format:'Google Sheets',aud:'Trabajadores maquiladora 25-45a'},
-  {id:2,e:'🏦',title:'Del IMSS al AFORE',sub:'Entiende tu pensión',price:'$199',tag:'💼 Alta demanda',color:'#1a3060',desc:'Sabe exactamente cuánto tendrás al retiro y qué hacer hoy para mejorar esa cifra antes de que sea tarde.',format:'Ebook + Calculadora',aud:'Empleados formales 30-50a'},
-  {id:3,e:'🏠',title:'INFONAVIT sin arruinarte',sub:'Guía paso a paso',price:'$299',tag:'🔥 Más buscado',color:'#B45309',desc:'Toma la decisión de vivienda más importante con números reales, sin gastos ocultos y sin sorpresas.',format:'PDF + Checklist',aud:'Familias TJ/Rosarito/Tecate'},
-  {id:4,e:'💱',title:'Dinero en la Frontera',sub:'Domina el tipo de cambio',price:'$399',tag:'💡 ROI inmediato',color:'#1E7B4D',desc:'Maximiza cada dólar. Ahorra 5-10% en conversiones anuales. Se recupera en la primera semana de aplicarlo.',format:'Mini-curso en video',aud:'Ingresos en USD/MXN'},
-  {id:5,e:'🧾',title:'Freelancer Binacional',sub:'Factura en USD sin miedo',price:'$699',tag:'📋 Premium',color:'#6D28D9',desc:'Opera legalmente, optimiza impuestos y deja de vivir con miedo al SAT. Certeza total sobre tu situación fiscal.',format:'Guía PDF + Comunidad',aud:'Freelancers digitales'},
-  {id:6,e:'🎯',title:'Fondo de Emergencia 90D',sub:'Reto de ahorro desde cero',price:'$199',tag:'🚀 Más popular',color:'#0369A1',desc:'Tu primer colchón de 3 meses en 90 días con microacciones diarias y comunidad de accountability incluida.',format:'Reto + Comunidad',aud:'Jóvenes 20-35a'},
-  {id:7,e:'🛍',title:'Compra en San Diego',sub:'Sin quebrarte',price:'$149',tag:'✈️ Fronterizo',color:'#92400E',desc:'Cruza con presupuesto definido, conoce los límites de aduana y regresa sin sorpresas en tarjeta.',format:'Guía Digital + Checklist',aud:'Familias que cruzan'},
-  {id:8,e:'🏪',title:'Primer Negocio Formal',sub:'Kit financiero completo',price:'$499',tag:'💼 Emprendedores',color:'#065F46',desc:'Separa finanzas del negocio, lleva control real y sabe si estás ganando o perdiendo de verdad.',format:'Kit Digital 4 herramientas',aud:'Emprendedores 25-40a'},
-  {id:9,e:'📈',title:'Invierte desde $500',sub:'Tu primera inversión MX',price:'$249',tag:'📊 Tendencia',color:'#1D4ED8',desc:'Haz tu primera inversión en menos de una semana. GBM+, CETES, Nu Invest — sin confusión ni parálisis.',format:'Ebook + Tutorial en video',aud:'Millennials y Gen Z'},
-  {id:10,e:'💳',title:'Deudas Cero',sub:'Plan de libertad financiera',price:'$299',tag:'❤️ Alto impacto',color:'#9D174D',desc:'Un plan personalizado con fecha exacta de libertad financiera y estrategia de negociación con bancos.',format:'Guía + Calculadora',aud:'Adultos 30-50a con deudas'},
+const WA='16195762396';
+function openWA(m){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(m),'_blank');}
+const products=[
+  {id:1,e:'📊',title:'Presupuesto Fronterizo',sub:'Plantilla bimoneda MXN/USD',price:'$149',tag:'⭐ Empezar aquí',color:'#8B2635',desc:'Controla tus gastos en pesos y dolares con calculadora de tipo de cambio integrada. Problema hiperespecifico de Tijuana que ninguna app generica resuelve.',format:'Google Sheets',aud:'Trabajadores maquiladora 25-45a'},
+  {id:2,e:'🏦',title:'Del IMSS al AFORE',sub:'Entiende tu pension',price:'$199',tag:'💼 Alta demanda',color:'#1a3060',desc:'Sabe exactamente cuanto tendras al retiro y que hacer hoy para mejorar esa cifra antes de que sea tarde.',format:'Ebook + Calculadora',aud:'Empleados formales 30-50a'},
+  {id:3,e:'🏠',title:'INFONAVIT sin arruinarte',sub:'Guia paso a paso',price:'$299',tag:'🔥 Mas buscado',color:'#B45309',desc:'Toma la decision de vivienda mas importante con numeros reales, sin gastos ocultos y sin sorpresas.',format:'PDF + Checklist',aud:'Familias TJ/Rosarito/Tecate'},
+  {id:4,e:'💱',title:'Dinero en la Frontera',sub:'Domina el tipo de cambio',price:'$399',tag:'💡 ROI inmediato',color:'#1E7B4D',desc:'Maximiza cada dolar. Ahorra 5-10% en conversiones anuales. Se recupera en la primera semana de aplicarlo.',format:'Mini-curso en video',aud:'Ingresos en USD/MXN'},
+  {id:5,e:'🧾',title:'Freelancer Binacional',sub:'Factura en USD sin miedo',price:'$699',tag:'📋 Premium',color:'#6D28D9',desc:'Opera legalmente, optimiza impuestos y deja de vivir con miedo al SAT. Certeza total sobre tu situacion fiscal.',format:'Guia PDF + Comunidad',aud:'Freelancers digitales'},
+  {id:6,e:'🎯',title:'Fondo Emergencia 90 Dias',sub:'Reto de ahorro desde cero',price:'$199',tag:'🚀 Mas popular',color:'#0369A1',desc:'Tu primer colchon de 3 meses en 90 dias con microacciones diarias y comunidad de accountability incluida.',format:'Reto + Comunidad',aud:'Jovenes 20-35a'},
+  {id:7,e:'🛍',title:'Compra en San Diego',sub:'Sin quebrarte',price:'$149',tag:'✈️ Fronterizo',color:'#92400E',desc:'Cruza con presupuesto definido, conoce los limites de aduana y regresa sin sorpresas en tarjeta.',format:'Guia Digital + Checklist',aud:'Familias que cruzan'},
+  {id:8,e:'🏪',title:'Primer Negocio Formal',sub:'Kit financiero completo',price:'$499',tag:'💼 Emprendedores',color:'#065F46',desc:'Separa finanzas del negocio, lleva control real y sabe si estas ganando o perdiendo de verdad.',format:'Kit Digital 4 herramientas',aud:'Emprendedores 25-40a'},
+  {id:9,e:'📈',title:'Invierte desde $500',sub:'Tu primera inversion en MX',price:'$249',tag:'📊 Tendencia',color:'#1D4ED8',desc:'Haz tu primera inversion en menos de una semana. GBM+, CETES, Nu Invest sin confusion ni paralisis.',format:'Ebook + Tutorial en video',aud:'Millennials y Gen Z'},
+  {id:10,e:'💳',title:'Deudas Cero',sub:'Plan de libertad financiera',price:'$299',tag:'❤️ Alto impacto',color:'#9D174D',desc:'Un plan personalizado con fecha exacta de libertad financiera y estrategia de negociacion con bancos.',format:'Guia + Calculadora',aud:'Adultos 30-50a con deudas'},
 ];
-const roadmap = [
-  {n:1,c:'#8B2635',title:'Fundación',wks:'Semanas 1–4',tasks:['Registrar en SAT bajo régimen RESICO','Crear identidad visual y abrir redes sociales','Lanzar "Presupuesto Fronterizo" esta semana','Configurar MercadoPago y entrega automática','10 posts de arranque + 5 videos TikTok educativos']},
-  {n:2,c:'#C9963A',title:'Validación',wks:'Semanas 5–8',tasks:['Lanzar Guía AFORE y Reto de Ahorro 90 Días','Iniciar Facebook Ads con $500 MXN/semana','TikTok diario — 1 video de 30-60 segundos','Recopilar testimonios y casos de éxito','Activar email marketing automatizado']},
-  {n:3,c:'#2563EB',title:'Expansión',wks:'Semanas 9–12',tasks:['Lanzar INFONAVIT y Compras en San Diego','Programa de referidos — 10% de comisión','Ads $2,000 MXN/mes con ROAS validado','Webinars gratuitos cada quincena','Alianzas con contadores y asesores locales']},
-  {n:4,c:'#1E7B4D',title:'Escala',wks:'Meses 4–6',tasks:['Catálogo completo — 10 productos activos','Automatización de embudos con Make.com','Membresía $99 MXN/mes con contenido exclusivo','Bundles y paquetes especiales','Colaboraciones con influencers TJ/BC 5K-50K']},
-  {n:5,c:'#7C3AED',title:'Consolidación',wks:'Meses 7–12',tasks:['Expandir a Mexicali, Ensenada y Tecate','Curso insignia premium $1,500-$2,500 MXN','Talleres B2B para RRHH de maquiladoras','Podcast semanal "El Peso y el Dólar"','Meta: 500+ clientes, $150K-$200K MXN/mes']},
+const roadmap=[
+  {n:1,c:'#8B2635',title:'Fundacion',wks:'Semanas 1-4',tasks:['Registrar en SAT bajo regimen RESICO','Crear identidad visual y abrir redes sociales','Lanzar Presupuesto Fronterizo esta semana','Configurar MercadoPago y entrega automatica','10 posts de arranque + 5 videos TikTok educativos']},
+  {n:2,c:'#C9963A',title:'Validacion',wks:'Semanas 5-8',tasks:['Lanzar Guia AFORE y Reto de Ahorro 90 Dias','Iniciar Facebook Ads con $500 MXN/semana','TikTok diario - 1 video de 30-60 segundos','Recopilar testimonios y casos de exito','Activar email marketing automatizado']},
+  {n:3,c:'#2563EB',title:'Expansion',wks:'Semanas 9-12',tasks:['Lanzar INFONAVIT y Compras en San Diego','Programa de referidos - 10% de comision','Ads $2,000 MXN/mes con ROAS validado','Webinars gratuitos cada quincena','Alianzas con contadores y asesores locales']},
+  {n:4,c:'#1E7B4D',title:'Escala',wks:'Meses 4-6',tasks:['Catalogo completo - 10 productos activos','Automatizacion de embudos con Make.com','Membresia $99 MXN/mes con contenido exclusivo','Bundles y paquetes especiales','Influencers TJ/BC 5K-50K seguidores']},
+  {n:5,c:'#7C3AED',title:'Consolidacion',wks:'Meses 7-12',tasks:['Expandir a Mexicali, Ensenada y Tecate','Curso insignia premium $1,500-$2,500 MXN','Talleres B2B para RRHH de maquiladoras','Podcast semanal El Peso y el Dolar','Meta: 500+ clientes, $150K-$200K MXN/mes']},
 ];
-const opps = [
-  {e:'💼',t:'Talleres B2B Maquiladoras',v:'$5,000–$15,000/sesión'},
-  {e:'🎓',t:'Curso Insignia Premium',v:'$1,500–$2,500/alumno'},
-  {e:'📱',t:'App Móvil Presupuesto',v:'$49 MXN/mes × usuarios'},
-  {e:'🤝',t:'Red de Afiliados',v:'20–30% de comisión'},
-  {e:'🎙',t:'Podcast Patrocinado',v:'$3,000–$10,000/episodio'},
-  {e:'🌎',t:'Expansión Regional',v:'5× mercado disponible'},
-];
-const fin = [
-  {p:'Mes 1',rng:'$2K–$4K',pct:8},
-  {p:'Mes 2',rng:'$6K–$12K',pct:20},
-  {p:'Mes 3',rng:'$15K–$30K',pct:38},
-  {p:'Mes 6',rng:'$40K–$80K',pct:65},
-  {p:'Mes 12',rng:'$90K–$200K',pct:100},
-];
-
-// ── STATE ─────────────────────────────────────────────────────────────────
-let tab='home', pfilter='todos', openPhase=null;
-
-// ── CLOCK ─────────────────────────────────────────────────────────────────
-function updateClock(){const n=new Date();document.getElementById('clock').textContent=n.getHours()+':'+(n.getMinutes()<10?'0':'')+n.getMinutes();}
-updateClock();setInterval(updateClock,60000);
-
-// ── NAVIGATION ────────────────────────────────────────────────────────────
-function go(t){
-  tab=t;
-  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
-  document.getElementById('nav-'+t).classList.add('active');
-  render();
-  document.getElementById('screen').scrollTop=0;
-}
-
-// ── RENDER ────────────────────────────────────────────────────────────────
-function render(){
-  const s=document.getElementById('screen');
-  if(tab==='home') s.innerHTML=homeHTML();
-  else if(tab==='productos') s.innerHTML=productosHTML();
-  else if(tab==='plan') s.innerHTML=planHTML();
-  else if(tab==='negocio') s.innerHTML=negocioHTML();
-  else s.innerHTML=perfilHTML();
-}
-
-function homeHTML(){
+const opps=[{e:'💼',t:'Talleres B2B Maquiladoras',v:'$5,000-$15,000/sesion'},{e:'🎓',t:'Curso Insignia Premium',v:'$1,500-$2,500/alumno'},{e:'📱',t:'App Movil Presupuesto',v:'$49 MXN/mes'},{e:'🤝',t:'Red de Afiliados',v:'20-30% de comision'},{e:'🎙',t:'Podcast Patrocinado',v:'$3,000-$10,000/ep'},{e:'🌎',t:'Expansion Regional',v:'5x mercado disponible'}];
+const fin=[{p:'Mes 1',r:'$2K-$4K',pct:8},{p:'Mes 2',r:'$6K-$12K',pct:20},{p:'Mes 3',r:'$15K-$30K',pct:38},{p:'Mes 6',r:'$40K-$80K',pct:65},{p:'Mes 12',r:'$90K-$200K',pct:100}];
+let tab='home',pf='todos',op=null;
+function tick(){const n=new Date();document.getElementById('clock').textContent=n.getHours()+':'+(n.getMinutes()<10?'0':'')+n.getMinutes();}
+tick();setInterval(tick,30000);
+function go(t){tab=t;document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));document.getElementById('nav-'+t).classList.add('active');render();document.getElementById('screen').scrollTop=0;}
+function render(){const s=document.getElementById('screen');if(tab==='home')s.innerHTML=hHome();else if(tab==='productos')s.innerHTML=hProd();else if(tab==='plan')s.innerHTML=hPlan();else if(tab==='negocio')s.innerHTML=hNeg();else s.innerHTML=hContact();}
+function hHome(){
   const feat=products.filter(p=>[1,3,6,10].includes(p.id));
-  return `
-  <div class="hero">
-    <div class="hc1"></div><div class="hc2"></div>
-    <div class="h-greet">Bienvenido a</div>
-    <div class="h-name">GW Asesoría<br><span>Financiera</span></div>
-    <div class="h-badge"><span class="hdot"></span> Tijuana · Baja California</div>
+  return `<div class="hero"><div class="hero-ring"></div><div class="hero-ring2"></div>
+  <div class="brand-logo"><div class="brand-badge">GW</div><div><div class="brand-name">GW Asesoria Financiera</div><div class="brand-sub">Tijuana · Frontera · MX</div></div></div>
+  <div class="h-headline">Tu dinero trabaja mejor<br>cuando <em>tu sabes mas</em></div>
+  <div class="h-desc">Guias, plantillas y mini-cursos para trabajadores, familias y emprendedores de clase media y baja en Tijuana y la frontera.</div>
+  <div class="h-badges"><div class="hb gold"><span class="hdot"></span> En linea ahora</div><div class="hb">📍 Tijuana, BC</div><div class="hb">💬 +1 619-576-2396</div></div></div>
+  <div class="sh" style="padding-top:10px;padding-bottom:8px;"><div class="sh-tag">Acceso rapido</div></div>
+  <div class="qgrid">${[['📊','Presupuesto\nBimoneda','productos'],['🏠','Guia\nINFONAVIT','productos'],['💱','Tipo de\nCambio','productos'],['🗺','Ruta\nCritica','plan'],['💼','Oportunidades','negocio'],['✉️','Contacto','contacto']].map(([e,l,t])=>`<div class="qi" onclick="go('${t}')"><div class="qi-e">${e}</div><div class="qi-l">${l.replace('\n','<br>')}</div></div>`).join('')}</div>
+  <div class="sh" style="padding-bottom:8px;"><div class="sh-tag">Metricas clave</div></div>
+  <div class="sstrip">${[['10','Productos digitales'],['$200K+','Ingreso anual MXN'],['80%+','Margen neto'],['500+','Clientes meta']].map(([v,l])=>`<div class="spill"><div class="spill-v">${v}</div><div class="spill-l">${l}</div></div>`).join('')}</div>
+  <div class="sh" style="padding-bottom:8px;"><div class="sh-tag">Destacados</div><div class="sh-title">Mas populares</div></div>
+  <div class="fscroll">${feat.map(p=>`<div class="fc" style="background:${p.color}18;border-color:${p.color}30;" onclick="openModal(${p.id})"><div class="fc-e">${p.e}</div><div class="fc-p">${p.price}</div><div class="fc-t">${p.title}</div><div class="fc-tg" style="color:${p.color};">${p.tag}</div></div>`).join('')}</div>
+  <div class="sh" style="padding-bottom:8px;"><div class="sh-tag">Asesoria gratuita</div><div class="sh-title">Recibe orientacion sin costo</div></div>
+  <div class="lead-wrap"><div class="lead-head"><div class="lead-head-title">📩 Agenda tu consulta gratis</div><div class="lead-head-sub">Te contactamos en menos de 24 horas por WhatsApp</div></div>
+  <div class="lead-body" id="lb1">
+    <label class="flbl">Tu nombre</label><input class="finput" id="n1" type="text" placeholder="Nombre completo">
+    <label class="flbl">WhatsApp</label><input class="finput" id="t1" type="tel" placeholder="+52 664 000 0000">
+    <label class="flbl">¿Que necesitas resolver?</label>
+    <select class="fselect" id="i1"><option value="">Selecciona...</option><option>Presupuesto y control de gastos</option><option>INFONAVIT / comprar casa</option><option>AFORE / pension</option><option>Salir de deudas</option><option>Empezar a invertir</option><option>Negocio propio</option><option>Freelancer / SAT / cobrar en USD</option><option>Compras en San Diego</option><option>Otro</option></select>
+    <button class="btn-lead" onclick="sub1()">📩 Enviar - me interesa</button>
+    <button class="btn-wa" onclick="openWA('Hola! Me interesa la asesoria gratuita de GW Asesoria Financiera.')">💬 Escribir por WhatsApp ahora</button>
+    <div class="form-note">🔒 Tu informacion es privada. Respuesta garantizada en menos de 24 hrs.</div>
   </div>
-  <div class="sh" style="padding-top:10px;padding-bottom:8px;"><div class="sh-tag">Acceso rápido</div></div>
-  <div class="qgrid">
-    ${[['📊','Presupuesto\nBimoneda','productos'],['🏠','Guía\nINFONAVIT','productos'],['💱','Tipo de\nCambio','productos'],['🗺','Ruta\nCrítica','plan'],['💼','Oportunidades','negocio'],['📈','Proyección','negocio']].map(([e,l,t])=>`<div class="qi" onclick="go('${t}')"><div class="qi-e">${e}</div><div class="qi-l">${l.replace('\n','<br>')}</div></div>`).join('')}
-  </div>
-  <div class="sh" style="padding-bottom:8px;"><div class="sh-tag">Métricas clave</div></div>
-  <div class="sstrip">
-    ${[['10','Productos'],['$200K+','Ingreso/año MXN'],['80%+','Margen neto'],['500+','Clientes meta']].map(([v,l])=>`<div class="spill"><div class="spill-v">${v}</div><div class="spill-l">${l}</div></div>`).join('')}
-  </div>
-  <div class="sh" style="padding-bottom:8px;"><div class="sh-tag">Destacados</div><div class="sh-title">Más populares</div></div>
-  <div class="fscroll">
-    ${feat.map(p=>`<div class="fc" style="background:${p.color}18;border-color:${p.color}30;" onclick="openModal(${p.id})"><div class="fc-e">${p.e}</div><div class="fc-p">${p.price}</div><div class="fc-t">${p.title}</div><div class="fc-tg" style="color:${p.color};">${p.tag}</div></div>`).join('')}
-  </div>
-  <div style="margin:4px 14px 0;background:rgba(201,150,58,.08);border:1px solid rgba(201,150,58,.2);border-radius:14px;padding:16px 18px;">
-    <div style="font-size:9.5px;font-weight:700;color:#C9963A;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">Inversión inicial recomendada</div>
-    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;">$5,000–$8,000 MXN</div>
-    <div style="font-size:11.5px;color:rgba(255,255,255,.42);line-height:1.6;">Recuperación en el mes 2–3. Margen neto superior al 80% desde el primer producto.</div>
-  </div>
+  <div class="lead-success" id="ls1"><div class="lsi">✅</div><div class="lst">¡Recibido, gracias!</div><div class="lss">Te contactaremos en menos de 24 horas a tu WhatsApp.<br>Mientras tanto, explora nuestros productos.</div><button class="btn-wa" style="margin-top:16px;" onclick="openWA('Hola! Acabo de llenar el formulario en la app de GW Asesoria Financiera. Quedo pendiente.')">💬 Confirmar por WhatsApp</button></div></div>
   <div style="height:14px;"></div>`;
 }
-
-function productosHTML(){
-  const cats=[{id:'todos',l:'Todos'},{id:'basico',l:'$149–$199'},{id:'medio',l:'$299–$499'},{id:'premium',l:'$699+'}];
-  const fil=products.filter(p=>{
-    if(pfilter==='todos')return true;
-    const n=parseInt(p.price.replace('$',''));
-    if(pfilter==='basico')return n<=199;
-    if(pfilter==='medio')return n>=299&&n<=499;
-    return n>=699;
-  });
-  return `
-  <div class="sh"><div class="sh-tag">Catálogo completo</div><div class="sh-title">10 productos digitales</div><div class="sh-sub">Educación financiera para el contexto fronterizo</div></div>
-  <div class="pfilt">
-    ${cats.map(c=>`<button class="fbtn ${pfilter===c.id?'on':''}" onclick="setFilter('${c.id}')">${c.l}</button>`).join('')}
-  </div>
-  <div class="pgrid">
-    ${fil.map(p=>`<div class="pcard" style="background:${p.color}13;" onclick="openModal(${p.id})"><div class="pcard-bar" style="background:${p.color};"></div><span class="pcard-e">${p.e}</span><div class="pcard-p">${p.price}</div><div class="pcard-t">${p.title}</div><div class="pcard-b">${p.tag}</div></div>`).join('')}
-  </div>`;
+function sub1(){
+  const n=document.getElementById('n1').value.trim(),t=document.getElementById('t1').value.trim(),i=document.getElementById('i1').value;
+  if(!n||!t||!i){alert('Por favor completa todos los campos.');return;}
+  document.getElementById('lb1').style.display='none';document.getElementById('ls1').style.display='block';
+  setTimeout(()=>openWA('Hola! Soy '+n+'. Llene el formulario en la app de GW Asesoria Financiera.\n\nNecesito ayuda con: '+i+'\nMi WhatsApp: '+t+'\n\n¿Cuando pueden orientarme?'),800);
 }
-
-function setFilter(f){pfilter=f;document.getElementById('screen').innerHTML=productosHTML();}
-
-function planHTML(){
-  return `
-  <div class="sh"><div class="sh-tag">Ruta crítica</div><div class="sh-title">De cero a $200K/año<br>en 5 fases</div><div class="sh-sub">Plan de implementación a 12 meses</div></div>
-  <div style="display:flex;padding:0 14px 16px;position:relative;">
-    <div style="position:absolute;top:18px;left:32px;right:32px;height:2px;background:linear-gradient(90deg,#8B2635,#C9963A,#2563EB,#1E7B4D,#7C3AED);opacity:.35;"></div>
-    ${roadmap.map(r=>`<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:34px;height:34px;border-radius:50%;background:${r.c};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;position:relative;z-index:1;">${r.n}</div><div style="font-size:8.5px;font-weight:600;color:rgba(255,255,255,.38);text-align:center;line-height:1.2;">${r.title}</div></div>`).join('')}
-  </div>
-  ${roadmap.map((r,i)=>`
-  <div class="pitem">
-    <div class="phdr" onclick="tglPhase(${i})">
-      <div class="pdot" style="background:${r.c};">${r.n}</div>
-      <div><div class="pname">${r.title}</div><div class="pwks">${r.wks}</div></div>
-      <div class="parr" id="parr${i}" style="${openPhase===i?'transform:rotate(90deg)':''}">›</div>
-    </div>
-    <div class="ptasks" id="pt${i}" style="display:${openPhase===i?'block':'none'};">
-      ${r.tasks.map(t=>`<div class="ptask">${t}</div>`).join('')}
-    </div>
-  </div>`).join('')}
-  <div style="margin:4px 14px 0;background:rgba(139,38,53,.1);border:1px solid rgba(139,38,53,.22);border-radius:14px;padding:16px 18px;">
-    <div style="font-size:9.5px;font-weight:700;color:#8B2635;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Esta semana — acción inmediata</div>
-    ${['Crear plantilla Presupuesto Fronterizo','Abrir @gwasesoriafinanciera en redes','Configurar MercadoPago para cobros','Publicar 3 videos TikTok educativos'].map((t,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:${i<3?'1px solid rgba(255,255,255,.04)':'none'};"><div style="width:18px;height:18px;border-radius:50%;background:rgba(139,38,53,.3);border:1px solid #8B2635;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#8B2635;flex-shrink:0;margin-top:2px;">${i+1}</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">${t}</div></div>`).join('')}
-  </div>
-  <div style="height:14px;"></div>`;
+function hProd(){
+  const fil=products.filter(p=>{if(pf==='todos')return true;const n=parseInt(p.price.replace('$',''));if(pf==='basico')return n<=199;if(pf==='medio')return n>=299&&n<=499;return n>=699;});
+  return `<div class="sh"><div class="sh-tag">Catalogo completo</div><div class="sh-title">10 productos digitales</div><div class="sh-sub">Toca cualquier producto para ver detalles y adquirirlo via WhatsApp</div></div>
+  <div class="pfilt">${[{id:'todos',l:'Todos'},{id:'basico',l:'$149-$199'},{id:'medio',l:'$299-$499'},{id:'premium',l:'$699+'}].map(c=>`<button class="fbtn ${pf===c.id?'on':''}" onclick="sf('${c.id}')">${c.l}</button>`).join('')}</div>
+  <div class="pgrid">${fil.map(p=>`<div class="pcard" style="background:${p.color}13;" onclick="openModal(${p.id})"><div class="pcard-bar" style="background:${p.color};"></div><span class="pcard-e">${p.e}</span><div class="pcard-p">${p.price}</div><div class="pcard-t">${p.title}</div><div class="pcard-b">${p.tag}</div></div>`).join('')}</div>`;
 }
-
-function tglPhase(i){
-  openPhase=openPhase===i?null:i;
-  roadmap.forEach((_,j)=>{
-    const p=document.getElementById('pt'+j);
-    const a=document.getElementById('parr'+j);
-    if(p)p.style.display=openPhase===j?'block':'none';
-    if(a)a.style.transform=openPhase===j?'rotate(90deg)':'';
-  });
+function sf(f){pf=f;document.getElementById('screen').innerHTML=hProd();}
+function hPlan(){
+  return `<div class="sh"><div class="sh-tag">Ruta critica</div><div class="sh-title">De cero a $200K/año<br>en 5 fases</div><div class="sh-sub">Plan de implementacion para los proximos 12 meses</div></div>
+  <div style="display:flex;padding:0 14px 16px;position:relative;"><div style="position:absolute;top:18px;left:32px;right:32px;height:2px;background:linear-gradient(90deg,#8B2635,#C9963A,#2563EB,#1E7B4D,#7C3AED);opacity:.35;"></div>
+  ${roadmap.map(r=>`<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:34px;height:34px;border-radius:50%;background:${r.c};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;position:relative;z-index:1;">${r.n}</div><div style="font-size:8.5px;font-weight:600;color:rgba(255,255,255,.38);text-align:center;line-height:1.2;">${r.title}</div></div>`).join('')}</div>
+  ${roadmap.map((r,i)=>`<div class="pitem"><div class="phdr" onclick="tp(${i})"><div class="pdot" style="background:${r.c};">${r.n}</div><div><div class="pname">${r.title}</div><div class="pwks">${r.wks}</div></div><div class="parr" id="parr${i}" style="${op===i?'transform:rotate(90deg)':''}">›</div></div><div class="ptasks-wrap" id="pt${i}" style="display:${op===i?'block':'none'};">${r.tasks.map(t=>`<div class="ptask">${t}</div>`).join('')}</div></div>`).join('')}
+  <div style="margin:4px 14px 16px;background:rgba(139,38,53,.1);border:1px solid rgba(139,38,53,.22);border-radius:14px;padding:16px 18px;"><div style="font-size:9.5px;font-weight:700;color:#8B2635;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Esta semana - accion inmediata</div>
+  ${['Crear plantilla Presupuesto Fronterizo','Abrir @gwasesoriafinanciera en redes','Configurar MercadoPago para cobros','Publicar 3 videos TikTok educativos'].map((t,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:${i<3?'1px solid rgba(255,255,255,.04)':'none'};"><div style="width:18px;height:18px;border-radius:50%;background:rgba(139,38,53,.3);border:1px solid #8B2635;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#8B2635;flex-shrink:0;margin-top:2px;">${i+1}</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">${t}</div></div>`).join('')}
+  </div><div style="height:14px;"></div>`;
 }
-
-function negocioHTML(){
-  return `
-  <div class="sh"><div class="sh-tag">Oportunidades de negocio</div><div class="sh-title">Más allá de los<br>productos digitales</div></div>
-  <div class="ogrid">
-    ${opps.map(o=>`<div class="ocard"><div class="ocard-e">${o.e}</div><div class="ocard-t">${o.t}</div><div class="ocard-v">${o.v}</div></div>`).join('')}
-  </div>
-  <div class="sh" style="padding-top:4px;"><div class="sh-tag">Proyección financiera</div><div class="sh-title">Crecimiento mes a mes</div><div class="sh-sub">Escenario conservador — recuperación en mes 2–3</div></div>
-  <div class="flist">
-    ${fin.map((f,i)=>`<div class="frow"><div class="ftop"><div class="fper">${f.p}</div><div class="famt">${f.rng} <span style="font-size:12px;font-weight:400;color:rgba(255,255,255,.32);">MXN</span></div></div><div class="fbarbg"><div class="fbarf" style="width:${f.pct}%;background:${i===4?'#C9963A':'#8B2635'};"></div></div></div>`).join('')}
-  </div>
-  <div style="margin:4px 14px 16px;background:rgba(30,123,77,.09);border:1px solid rgba(30,123,77,.2);border-radius:14px;padding:16px 18px;">
-    <div style="font-size:9.5px;font-weight:700;color:#34D399;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Mix de marketing</div>
-    ${[['📘 Facebook/Instagram Ads','$1,500–$3,000/mes'],['🎵 TikTok Orgánico','$0 — solo tiempo'],['💬 WhatsApp Business','$299/mes API'],['🔍 Google Ads + SEO','$1,000–$2,000/mes'],['📧 Email Marketing','$200/mes plataforma'],['🤝 Programa de Referidos','$0 costo base']].map(([c,v],i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:${i<5?'1px solid rgba(255,255,255,.04)':'none'};"><div style="font-size:11.5px;color:rgba(255,255,255,.62);">${c}</div><div style="font-size:10px;font-weight:700;color:#C9963A;">${v}</div></div>`).join('')}
-  </div>`;
+function tp(i){op=op===i?null:i;roadmap.forEach((_,j)=>{const p=document.getElementById('pt'+j),a=document.getElementById('parr'+j);if(p)p.style.display=op===j?'block':'none';if(a)a.style.transform=op===j?'rotate(90deg)':'';})}
+function hNeg(){
+  return `<div class="sh"><div class="sh-tag">Oportunidades</div><div class="sh-title">Mas alla de los<br>productos digitales</div></div>
+  <div class="ogrid">${opps.map(o=>`<div class="ocard"><div class="ocard-e">${o.e}</div><div class="ocard-t">${o.t}</div><div class="ocard-v">${o.v}</div></div>`).join('')}</div>
+  <div class="sh" style="padding-top:4px;"><div class="sh-tag">Proyeccion financiera</div><div class="sh-title">Crecimiento mes a mes</div><div class="sh-sub">Escenario conservador - recuperacion en mes 2-3</div></div>
+  <div class="flist">${fin.map((f,i)=>`<div class="frow"><div class="ftop"><div class="fper">${f.p}</div><div class="famt">${f.r} <span style="font-size:12px;font-weight:400;color:rgba(255,255,255,.32);">MXN</span></div></div><div class="fbarbg"><div class="fbarf" style="width:${f.pct}%;background:${i===4?'#C9963A':'#8B2635'};"></div></div></div>`).join('')}</div>
+  <div style="margin:4px 14px 16px;background:rgba(30,123,77,.09);border:1px solid rgba(30,123,77,.2);border-radius:14px;padding:16px 18px;"><div style="font-size:9.5px;font-weight:700;color:#34D399;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Mix de marketing</div>
+  ${[['📘 Facebook/Instagram Ads','$1,500-$3,000/mes'],['🎵 TikTok Organico','$0 - solo tiempo'],['💬 WhatsApp Business','$299/mes API'],['🔍 Google Ads + SEO','$1,000-$2,000/mes'],['📧 Email Marketing','$200/mes plataforma'],['🤝 Programa de Referidos','$0 costo base']].map(([c,v],i)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:${i<5?'1px solid rgba(255,255,255,.04)':'none'};"><div style="font-size:11.5px;color:rgba(255,255,255,.62);">${c}</div><div style="font-size:10px;font-weight:700;color:#C9963A;">${v}</div></div>`).join('')}</div>`;
 }
-
-function perfilHTML(){
-  return `
-  <div class="sh"><div class="sh-tag">Mi perfil</div><div class="sh-title">GW Asesoría Financiera</div></div>
-  <div style="padding:0 14px 14px;text-align:center;">
-    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px 16px;">
-      <div class="pav">GW</div>
-      <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:3px;">GW Asesoría Financiera</div>
-      <div style="font-size:11.5px;color:rgba(255,255,255,.38);">Tijuana, Baja California · México</div>
-      <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.25);border-radius:100px;padding:4px 13px;margin-top:10px;font-size:10px;font-weight:700;color:#C9963A;">
-        <span style="width:5px;height:5px;border-radius:50%;background:#C9963A;display:inline-block;"></span> Plan: Lanzamiento activo
-      </div>
-    </div>
+function hContact(){
+  return `<div class="sh"><div class="sh-tag">Contactanos</div><div class="sh-title">Estamos aqui para<br>ayudarte</div><div class="sh-sub">Respuesta garantizada en menos de 24 horas</div></div>
+  <div class="contact-card"><div class="ctitle">💬 Canales de contacto directo</div>
+  <div class="crow" onclick="openWA('Hola! Me interesa conocer mas sobre GW Asesoria Financiera.')"><div class="cicon">💬</div><div><div class="clbl">WhatsApp (canal principal)</div><div class="cval">+1 619-576-2396</div></div><div style="margin-left:auto;font-size:12px;color:#25D366;font-weight:700;">Abrir →</div></div>
+  <div class="crow" onclick="openWA('Hola! Llame desde San Diego. Me interesa la asesoria financiera.')"><div class="cicon">📱</div><div><div class="clbl">San Diego / EE.UU.</div><div class="cval">+1 (619) 576-2396</div></div></div>
+  <div class="crow"><div class="cicon">📍</div><div><div class="clbl">Ubicacion</div><div class="cval">Tijuana, Baja California, MX</div></div></div>
+  <div class="crow"><div class="cicon">🕐</div><div><div class="clbl">Horario de atencion</div><div class="cval">Lun-Vie 9am-7pm · Sab 10am-2pm</div></div></div></div>
+  <div class="sh" style="padding-top:2px;padding-bottom:8px;"><div class="sh-tag">Formulario de contacto</div><div class="sh-title">Cuentanos tu situacion</div></div>
+  <div class="lead-wrap"><div class="lead-head"><div class="lead-head-title">📋 Orientacion gratuita sin compromiso</div><div class="lead-head-sub">Un asesor de GW te responde en 24 hrs</div></div>
+  <div class="lead-body" id="lb2">
+    <label class="flbl">Tu nombre</label><input class="finput" id="n2" type="text" placeholder="Nombre completo">
+    <label class="flbl">WhatsApp</label><input class="finput" id="t2" type="tel" placeholder="+52 664 000 0000">
+    <label class="flbl">¿Sobre que necesitas ayuda?</label>
+    <select class="fselect" id="i2"><option value="">Selecciona...</option><option>Presupuesto y control de gastos</option><option>INFONAVIT / comprar casa</option><option>AFORE / pension</option><option>Salir de deudas</option><option>Empezar a invertir desde $500</option><option>Negocio propio / finanzas empresariales</option><option>Freelancer / SAT / cobrar en USD</option><option>Compras en San Diego sin gastar de mas</option><option>Otro tema financiero</option></select>
+    <label class="flbl">Mensaje adicional (opcional)</label><input class="finput" id="m2" type="text" placeholder="¿Algo mas que quieras contarnos?">
+    <button class="btn-lead" onclick="sub2()">📩 Enviar consulta gratis</button>
+    <button class="btn-wa" onclick="openWA('Hola! Me interesa la asesoria financiera de GW. ¿Pueden orientarme?')">💬 Escribir por WhatsApp ahora</button>
+    <div class="form-note">🔒 Informacion confidencial. Nunca la compartimos.<br>Respuesta garantizada en menos de 24 hrs.</div>
   </div>
-  <div style="padding:0 14px 14px;">
-    <div class="pcard2">
-      ${[['📦','Productos disponibles','10 productos en catálogo'],['🗺','Fase actual','Fase 1 — Fundación (Sem 1–4)'],['💰','Meta mes 12','$90,000–$200,000 MXN'],['👥','Audiencia objetivo','Clase media y baja, TJ frontera'],['📍','Mercado principal','Tijuana, BC · Región fronteriza'],['📅','Recuperación inversión','Mes 2–3 (escenario conservador)']].map(([e,l,v])=>`<div class="prow"><div class="pre">${e}</div><div><div class="plbl">${l}</div><div class="pval">${v}</div></div></div>`).join('')}
-    </div>
-    <div style="background:rgba(139,38,53,.1);border:1px solid rgba(139,38,53,.22);border-radius:14px;padding:16px 18px;margin-bottom:14px;">
-      <div style="font-size:9.5px;font-weight:700;color:#8B2635;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Próximos pasos urgentes</div>
-      ${['Crear plantilla Presupuesto Fronterizo esta semana','Registrar @gwasesoriafinanciera en redes sociales','Configurar MercadoPago para recibir pagos','Publicar 3 videos TikTok educativos de arranque'].map(t=>`<div style="display:flex;gap:9px;align-items:flex-start;padding:6px 0;font-size:11.5px;color:rgba(255,255,255,.62);line-height:1.5;"><div style="width:14px;height:14px;border-radius:3px;border:1.5px solid rgba(139,38,53,.55);flex-shrink:0;margin-top:2px;"></div>${t}</div>`).join('')}
-    </div>
-    <div style="text-align:center;padding-bottom:6px;">
-      <div style="font-size:11px;color:rgba(255,255,255,.18);">GW Asesoría Financiera v1.0 · Mayo 2026</div>
-      <div style="font-size:10px;color:rgba(255,255,255,.12);margin-top:3px;">Desarrollado con Claude AI · Tijuana, MX</div>
-    </div>
-  </div>`;
+  <div class="lead-success" id="ls2"><div class="lsi">✅</div><div class="lst">¡Mensaje enviado!</div><div class="lss">Un asesor de GW te contactara en menos de 24 horas a tu WhatsApp.</div><button class="btn-wa" style="margin-top:16px;" onclick="openWA('Hola! Acabo de llenar el formulario de contacto de GW Asesoria Financiera.')">💬 Confirmar por WhatsApp</button></div></div>
+  <div class="sh" style="padding-top:4px;padding-bottom:8px;"><div class="sh-tag">Productos mas consultados</div></div>
+  <div class="fscroll">${products.filter(p=>[1,3,6].includes(p.id)).map(p=>`<div class="fc" style="background:${p.color}18;border-color:${p.color}30;" onclick="openModal(${p.id})"><div class="fc-e">${p.e}</div><div class="fc-p">${p.price}</div><div class="fc-t">${p.title}</div><div class="fc-tg" style="color:${p.color};">${p.tag}</div></div>`).join('')}</div>
+  <div style="text-align:center;padding:16px 14px 6px;"><div style="font-size:11px;color:rgba(255,255,255,.18);">GW Asesoria Financiera · Tijuana, BC · Mayo 2026</div><div style="font-size:10px;color:rgba(255,255,255,.12);margin-top:3px;">Desarrollado con Claude AI</div></div><div style="height:14px;"></div>`;
 }
-
-// ── MODAL ─────────────────────────────────────────────────────────────────
+function sub2(){
+  const n=document.getElementById('n2').value.trim(),t=document.getElementById('t2').value.trim(),i=document.getElementById('i2').value,m=document.getElementById('m2').value.trim();
+  if(!n||!t||!i){alert('Por favor completa los campos obligatorios.');return;}
+  document.getElementById('lb2').style.display='none';document.getElementById('ls2').style.display='block';
+  setTimeout(()=>openWA('Hola! Soy '+n+'. Llene el formulario de GW Asesoria Financiera.\n\nNecesito ayuda con: '+i+(m?'\nMensaje: '+m:'')+'\nMi WhatsApp: '+t+'\n\n¿Cuando pueden orientarme?'),800);
+}
 function openModal(id){
   const p=products.find(x=>x.id===id);
-  document.getElementById('msheet').innerHTML=`
-    <div class="mhandle"></div>
-    <div style="font-size:42px;text-align:center;margin-bottom:12px;">${p.e}</div>
-    <div style="text-align:center;margin-bottom:16px;">
-      <div style="display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.8px;padding:3px 11px;border-radius:100px;background:${p.color}25;color:${p.color};margin-bottom:8px;">${p.tag}</div>
-      <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:3px;">${p.title}</div>
-      <div style="font-size:12.5px;color:rgba(255,255,255,.42);">${p.sub}</div>
-    </div>
-    <div style="font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:16px;">${p.desc}</div>
-    <div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;">
-      ${[['Formato',p.format],['Para quién',p.aud],['Precio',p.price+' MXN']].map(([l,v])=>`<div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:7px 12px;"><div style="font-size:9px;color:rgba(255,255,255,.32);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">${l}</div><div style="font-size:11.5px;color:rgba(255,255,255,.75);font-weight:600;">${v}</div></div>`).join('')}
-    </div>
-    <button class="mbuy" style="background:${p.color};">Obtener por ${p.price} MXN →</button>
-    <button class="mclose" onclick="closeModal()">Cerrar</button>`;
+  document.getElementById('msheet').innerHTML=`<div class="mhandle"></div><div style="font-size:42px;text-align:center;margin-bottom:12px;">${p.e}</div>
+  <div style="text-align:center;margin-bottom:16px;"><div style="display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.8px;padding:3px 11px;border-radius:100px;background:${p.color}25;color:${p.color};margin-bottom:8px;">${p.tag}</div>
+  <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:3px;">${p.title}</div><div style="font-size:12.5px;color:rgba(255,255,255,.42);">${p.sub}</div></div>
+  <div style="font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:16px;">${p.desc}</div>
+  <div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;">${[['Formato',p.format],['Para quien',p.aud],['Precio',p.price+' MXN']].map(([l,v])=>`<div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:7px 12px;"><div style="font-size:9px;color:rgba(255,255,255,.32);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;">${l}</div><div style="font-size:11.5px;color:rgba(255,255,255,.75);font-weight:600;">${v}</div></div>`).join('')}</div>
+  <button class="mbuy" style="background:${p.color};" onclick="openWA('Hola! Me interesa el producto ${p.title} (${p.price} MXN). Como puedo adquirirlo?')">Adquirir por ${p.price} MXN →</button>
+  <button class="mwa" onclick="openWA('Hola! Tengo preguntas sobre ${p.title}. Me pueden ayudar?')">💬 Preguntar por WhatsApp</button>
+  <button class="mclose" onclick="closeModal()">Cerrar</button>`;
   document.getElementById('modal').classList.add('open');
 }
-function closeModal(e){
-  if(!e||e.target===document.getElementById('modal')||e.target.classList.contains('mclose')){
-    document.getElementById('modal').classList.remove('open');
-  }
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────
+function closeModal(e){if(!e||e.target===document.getElementById('modal')||e.target.classList.contains('mclose'))document.getElementById('modal').classList.remove('open');}
 render();
 </script>
 </body>
