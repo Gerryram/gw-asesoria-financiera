@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GW Asesoría Financiera | Educación Financiera para Tijuana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2040;
+  --maroon: #8B2635;
+  --gold: #C9963A;
+  --gold-lt: #F5E6C8;
+  --cream: #FAF8F3;
+  --dark: #0f1325;
+  --gray: #6B7280;
+  --lgray: #F3F4F6;
+  --white: #ffffff;
+  --green: #1E7B4D;
+  --lgreen: #E8F5EE;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;}
+.serif{font-family:'Playfair Display',serif;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,32,64,0.97);backdrop-filter:blur(8px);padding:0 5%;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-badge{width:38px;height:38px;background:var(--maroon);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;color:var(--white);font-size:15px;letter-spacing:-0.5px;}
+.logo-text{color:var(--white);font-size:13px;font-weight:500;line-height:1.3;}
+.logo-text span{color:var(--gold);display:block;font-size:10px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--maroon);color:var(--white);padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:#a12e40;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 5% 60px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(139,38,53,0.18) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(201,150,58,0.1) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,58,0.15);border:1px solid rgba(201,150,58,0.35);border-radius:100px;padding:6px 16px;margin-bottom:24px;}
+.hero-tag span{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;}
+h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{color:rgba(255,255,255,0.65);font-size:16px;line-height:1.7;margin-bottom:32px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--maroon);color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-primary:hover{background:#a12e40;transform:translateY(-1px);}
+.btn-secondary{background:transparent;color:var(--white);padding:14px 28px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:all .2s;}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);}
+
+/* Hero stats */
+.hero-stats{display:grid;gap:16px;}
+.stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:18px;}
+.stat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.stat-icon.maroon{background:rgba(139,38,53,0.3);}
+.stat-icon.gold{background:rgba(201,150,58,0.25);}
+.stat-icon.green{background:rgba(30,123,77,0.25);}
+.stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);line-height:1;}
+.stat-lbl{color:rgba(255,255,255,0.55);font-size:12px;margin-top:3px;}
+
+/* SECTIONS */
+section{padding:80px 5%;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-tag{display:inline-block;background:rgba(139,38,53,0.1);color:var(--maroon);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:14px;}
+.section-tag.gold-tag{background:var(--gold-lt);color:#7A5A15;}
+.section-tag.navy-tag{background:rgba(26,32,64,0.08);color:var(--navy);}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:14px;}
+.section-desc{color:var(--gray);font-size:16px;line-height:1.7;max-width:620px;}
+.text-center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* AUDIENCIA */
+.audience-section{background:var(--cream);}
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:48px;}
+.audience-card{background:var(--white);border:1px solid #E5E7EB;border-radius:14px;padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.audience-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(26,32,64,0.1);}
+.audience-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--maroon);}
+.audience-card.gold-top::before{background:var(--gold);}
+.audience-card.navy-top::before{background:var(--navy);}
+.audience-card.green-top::before{background:var(--green);}
+.aud-emoji{font-size:32px;margin-bottom:14px;}
+.aud-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.aud-desc{font-size:13px;color:var(--gray);line-height:1.6;}
+
+/* PRODUCTOS */
+.products-section{background:var(--white);}
+.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.product-card{border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;transition:all .25s;}
+.product-card:hover{border-color:var(--maroon);box-shadow:0 8px 28px rgba(139,38,53,0.12);}
+.product-card.featured{border:2px solid var(--maroon);position:relative;}
+.featured-badge{position:absolute;top:14px;right:14px;background:var(--maroon);color:var(--white);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px;}
+.product-header{padding:24px 24px 18px;background:var(--lgray);}
+.product-num{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.product-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:10px;}
+.product-format{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid #E5E7EB;border-radius:100px;padding:4px 12px;font-size:11px;color:var(--gray);font-weight:500;}
+.product-body{padding:20px 24px;}
+.product-audience{font-size:12px;color:var(--gray);margin-bottom:12px;}
+.product-audience strong{color:var(--navy);}
+.product-transform{font-size:13px;color:var(--dark);line-height:1.6;margin-bottom:18px;}
+.product-footer{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--maroon);}
+.product-price span{font-size:12px;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--gray);}
+.btn-sm{background:var(--navy);color:var(--white);padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;transition:background .2s;}
+.btn-sm:hover{background:var(--maroon);}
+
+/* RUTA CRITICA */
+.roadmap-section{background:var(--navy);color:var(--white);}
+.roadmap-section h2{color:var(--white);}
+.roadmap-section .section-desc{color:rgba(255,255,255,0.6);}
+.timeline{margin-top:52px;position:relative;}
+.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:rgba(201,150,58,0.3);}
+.phase{display:flex;gap:30px;margin-bottom:36px;position:relative;}
+.phase-dot{width:50px;height:50px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--white);z-index:2;position:relative;}
+.p1{background:var(--maroon);}
+.p2{background:var(--gold);}
+.p3{background:#2563EB;}
+.p4{background:var(--green);}
+.p5{background:#7C3AED;}
+.phase-content{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:22px 26px;}
+.phase-meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.phase-title{font-weight:700;font-size:16px;color:var(--white);}
+.phase-weeks{font-size:12px;color:var(--gold);font-weight:600;background:rgba(201,150,58,0.15);padding:3px 10px;border-radius:100px;}
+.phase-tasks{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px;}
+.phase-tasks li{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
+.phase-tasks li::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px;}
+
+/* MARKETING */
+.marketing-section{background:var(--cream);}
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:48px;}
+.mkt-card{background:var(--white);border:1px solid #E5E7EB;border-radius:14px;padding:24px;}
+.mkt-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.mkt-icon.fb{background:#EBF5FF;color:#1877F2;}
+.mkt-icon.tt{background:#F0F0F0;color:#000;}
+.mkt-icon.wa{background:#E8F8EE;color:#25D366;}
+.mkt-icon.gads{background:#FFF3E0;color:#EA4335;}
+.mkt-icon.em{background:#F3E8FF;color:#7C3AED;}
+.mkt-icon.ref{background:#FFF8E1;color:#F59E0B;}
+.mkt-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.mkt-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:12px;}
+.mkt-tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;}
+.mkt-tag.red{background:#FEE2E2;color:#991B1B;}
+.mkt-tag.green{background:var(--lgreen);color:var(--green);}
+.mkt-tag.blue{background:#EFF6FF;color:#1D4ED8;}
+
+/* OPORTUNIDADES */
+.opp-section{background:var(--white);}
+.opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:48px;}
+.opp-card{border:1px solid #E5E7EB;border-radius:14px;padding:26px 22px;transition:all .2s;}
+.opp-card:hover{background:var(--navy);border-color:var(--navy);}
+.opp-card:hover .opp-title{color:var(--white);}
+.opp-card:hover .opp-desc{color:rgba(255,255,255,0.65);}
+.opp-card:hover .opp-potential{color:var(--gold);}
+.opp-emoji{font-size:28px;margin-bottom:14px;}
+.opp-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;transition:color .2s;}
+.opp-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:12px;transition:color .2s;}
+.opp-potential{font-size:12px;font-weight:700;color:var(--green);transition:color .2s;}
+
+/* PROYECCION */
+.finance-section{background:var(--navy);}
+.finance-section h2{color:var(--white);}
+.finance-section .section-desc{color:rgba(255,255,255,0.6);}
+.finance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:48px;}
+.fin-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;text-align:center;}
+.fin-period{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.fin-rev{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.fin-lbl{font-size:12px;color:rgba(255,255,255,0.45);}
+.fin-bar{height:4px;border-radius:2px;background:var(--maroon);margin-top:14px;}
+
+/* CTA */
+.cta-section{background:var(--maroon);padding:80px 5%;}
+.cta-inner{max-width:720px;margin:0 auto;text-align:center;}
+.cta-inner h2{color:var(--white);font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,40px);font-weight:900;margin-bottom:16px;}
+.cta-inner p{color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7;margin-bottom:36px;}
+.cta-inner .btn-white{background:var(--white);color:var(--maroon);padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .2s;}
+.cta-inner .btn-white:hover{background:var(--cream);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--dark);padding:40px 5%;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-brand{color:rgba(255,255,255,0.4);font-size:13px;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:12px;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
+
+/* Animate on scroll */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  nav .nav-links,.nav-cta{display:none;}
+  .timeline::before{display:none;}
+  .phase{flex-direction:column;gap:12px;}
+  .phase-dot{width:38px;height:38px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-badge">GW</div>
+      <div class="logo-text">GW Asesoría Financiera
+        <span>Tijuana · Baja California</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#audiencia">¿Para quién?</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#roadmap">Plan</a></li>
+      <li><a href="#oportunidades">Negocio</a></li>
+    </ul>
+    <a href="#productos" class="nav-cta">Ver productos →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">
+        <div class="hero-dot"></div>
+        <span>Educación financiera fronteriza</span>
+      </div>
+      <h1>Tu dinero<br><em>trabaja mejor</em><br>cuando tú sabes más.</h1>
+      <p class="hero-sub">Guías, plantillas y mini-cursos diseñados específicamente para el contexto de Tijuana y la frontera. Soluciones reales para trabajadores, familias y emprendedores de clase media y baja.</p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn-primary">Ver todos los productos ↓</a>
+        <a href="#roadmap" class="btn-secondary">Plan de negocios</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-icon maroon">💰</div>
+        <div>
+          <div class="stat-num">10</div>
+          <div class="stat-lbl">Productos digitales disponibles</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon gold">🏠</div>
+        <div>
+          <div class="stat-num">$149</div>
+          <div class="stat-lbl">Precio de entrada — menos de 1 día de salario</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">📈</div>
+        <div>
+          <div class="stat-num">MXN/USD</div>
+          <div class="stat-lbl">Contexto bimoneda 100% tijuanense</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCIA -->
+<section class="audience-section" id="audiencia">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">¿Para quién es esto?</span>
+      <h2>Diseñado para la gente real de Tijuana</h2>
+      <p class="section-desc">No necesitas universidad ni historial crediticio. Solo ganas de manejar mejor tu dinero en un contexto que ninguna app genérica entiende.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card fade-up">
+        <div class="aud-emoji">🏭</div>
+        <div class="aud-title">Trabajadores de maquiladora</div>
+        <div class="aud-desc">Con AFORE sin revisar, quincenas sin planear y el sueño de tener casa propia con INFONAVIT.</div>
+      </div>
+      <div class="audience-card gold-top fade-up">
+        <div class="aud-emoji">👨‍👩‍👧‍👦</div>
+        <div class="aud-title">Familias tijuanenses</div>
+        <div class="aud-desc">Que cruzan a San Diego regularmente y gastan más de lo que planean, sin estrategia ni presupuesto.</div>
+      </div>
+      <div class="audience-card navy-top fade-up">
+        <div class="aud-emoji">💻</div>
+        <div class="aud-title">Freelancers binacionales</div>
+        <div class="aud-desc">Que cobran en dólares por PayPal o Wise y no saben cómo declarar ni qué hacer con el SAT.</div>
+      </div>
+      <div class="audience-card green-top fade-up">
+        <div class="aud-emoji">🛒</div>
+        <div class="aud-title">Emprendedores informales</div>
+        <div class="aud-desc">Con negocio en marcha pero sin separar finanzas, sin flujo de caja y sin saber si están ganando o perdiendo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="products-section" id="productos">
+  <div class="section-inner">
+    <div class="products-header fade-up">
+      <div>
+        <span class="section-tag navy-tag">Catálogo completo</span>
+        <h2>10 productos digitales<br>para transformar tus finanzas</h2>
+      </div>
+      <p class="section-desc" style="text-align:right;">Ordenados por facilidad de implementación. Empieza con el #1 esta semana.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card featured fade-up">
+        <div class="featured-badge">⭐ Lanzar primero</div>
+        <div class="product-header">
+          <div class="product-num">Producto 01</div>
+          <div class="product-title">Presupuesto Fronterizo — Plantilla Bimoneda MXN/USD</div>
+          <span class="product-format">📊 Plantilla Google Sheets</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Trabajadores con ingresos mixtos, 25–45 años</p>
+          <p class="product-transform">De no saber a dónde se fue el dinero, a tener control total de gastos en pesos y dólares con calculadora de tipo de cambio integrada.</p>
+          <div class="product-footer">
+            <div class="product-price">$149–$199 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 02</div>
+          <div class="product-title">Del IMSS al AFORE — Entiende tu pensión antes de que sea tarde</div>
+          <span class="product-format">📖 Ebook + Calculadora</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Empleados formales 30–50 años</p>
+          <p class="product-transform">Saber exactamente cuánto tendrás al retiro y qué hacer hoy para mejorar esa cifra antes de que sea demasiado tarde.</p>
+          <div class="product-footer">
+            <div class="product-price">$199–$299 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card featured fade-up">
+        <div class="featured-badge">🔥 Más buscado</div>
+        <div class="product-header">
+          <div class="product-num">Producto 03</div>
+          <div class="product-title">Cómo usar tu INFONAVIT sin arruinarte</div>
+          <span class="product-format">📋 Guía PDF + Checklist</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Familias buscando casa propia en TJ/Rosarito/Tecate</p>
+          <p class="product-transform">Tomar la decisión de vivienda más importante de tu vida con números reales, sin gastos ocultos y sin sorpresas de aduana.</p>
+          <div class="product-footer">
+            <div class="product-price">$299 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 04</div>
+          <div class="product-title">Dinero en la Frontera — Domina el tipo de cambio</div>
+          <span class="product-format">🎥 Mini-curso en video</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Cualquiera con ingresos o gastos en USD</p>
+          <p class="product-transform">Maximizar cada dólar, cambiar en el lugar correcto y ahorrar 5–10% en conversiones cada año. Se recupera en la primera semana.</p>
+          <div class="product-footer">
+            <div class="product-price">$399–$499 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 05</div>
+          <div class="product-title">Freelancer Binacional — Factura en USD sin miedo al SAT</div>
+          <span class="product-format">📄 Guía PDF + Comunidad</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Diseñadores, devs, consultores con clientes de EE.UU.</p>
+          <p class="product-transform">Operar legalmente, optimizar impuestos y dejar de vivir con miedo al SAT. Certeza total sobre tu situación fiscal.</p>
+          <div class="product-footer">
+            <div class="product-price">$699 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card featured fade-up">
+        <div class="featured-badge">🚀 Más popular</div>
+        <div class="product-header">
+          <div class="product-num">Producto 06</div>
+          <div class="product-title">Fondo de Emergencia en 90 Días — Reto de ahorro</div>
+          <span class="product-format">🎯 Reto + Comunidad</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Jóvenes 20–35 años sin historial de ahorro</p>
+          <p class="product-transform">Tu primer colchón de 3 meses de gastos en 90 días con microacciones diarias y comunidad de accountability.</p>
+          <div class="product-footer">
+            <div class="product-price">$199 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 07</div>
+          <div class="product-title">Compra en San Diego sin quebrarte</div>
+          <span class="product-format">📱 Guía Digital + Checklist</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Familias que cruzan regularmente</p>
+          <p class="product-transform">Cruzar con presupuesto definido, saber los límites de aduana y regresar sin deudas en la tarjeta ni sorpresas.</p>
+          <div class="product-footer">
+            <div class="product-price">$149 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 08</div>
+          <div class="product-title">Tu Primer Negocio Formal — Kit financiero completo</div>
+          <span class="product-format">💼 Kit Digital (4 herramientas)</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Emprendedores informales 25–40 años</p>
+          <p class="product-transform">Separar finanzas del negocio, llevar control real y saber exactamente si estás ganando o perdiendo dinero.</p>
+          <div class="product-footer">
+            <div class="product-price">$499–$699 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-header">
+          <div class="product-num">Producto 09</div>
+          <div class="product-title">Invierte desde $500 pesos — Tu primera inversión en México</div>
+          <span class="product-format">📖 Ebook + Video tutorial</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Millennials y Gen Z con algo de ingreso disponible</p>
+          <p class="product-transform">Hacer tu primera inversión en menos de una semana. GBM+, CETES, Nu Invest — sin confusión, sin riesgo innecesario.</p>
+          <div class="product-footer">
+            <div class="product-price">$249–$349 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card featured fade-up">
+        <div class="featured-badge">❤️ Alto impacto</div>
+        <div class="product-header">
+          <div class="product-num">Producto 10</div>
+          <div class="product-title">Deudas Cero — Tu plan de libertad financiera</div>
+          <span class="product-format">📊 Guía + Calculadora + Plantilla</span>
+        </div>
+        <div class="product-body">
+          <p class="product-audience"><strong>Para:</strong> Adultos 30–50 años con múltiples deudas</p>
+          <p class="product-transform">Un plan personalizado con fecha exacta de libertad financiera. Estrategia de negociación con bancos incluida.</p>
+          <div class="product-footer">
+            <div class="product-price">$299–$399 <span>MXN</span></div>
+            <a href="#cta" class="btn-sm">Obtener →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap-section" id="roadmap">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag gold-tag">Ruta crítica</span>
+      <h2>De cero a $200K MXN/año<br>en 5 fases</h2>
+      <p class="section-desc">Plan de implementación estructurado para lanzar GW Asesoría Financiera en 12 meses.</p>
+    </div>
+    <div class="timeline">
+      <div class="phase fade-up">
+        <div class="phase-dot p1">1</div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-title">Fundación y Lanzamiento</span>
+            <span class="phase-weeks">Semanas 1–4</span>
+          </div>
+          <ul class="phase-tasks">
+            <li>Registrar marca en SAT bajo régimen RESICO</li>
+            <li>Crear identidad visual y abrir cuentas en todas las redes sociales</li>
+            <li>Lanzar producto #1: Plantilla "Presupuesto Fronterizo"</li>
+            <li>Configurar sistema de cobro: MercadoPago + entrega automática</li>
+            <li>Publicar 10 posts de arranque + 5 videos TikTok educativos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase fade-up">
+        <div class="phase-dot p2">2</div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-title">Validación y Momentum</span>
+            <span class="phase-weeks">Semanas 5–8</span>
+          </div>
+          <ul class="phase-tasks">
+            <li>Lanzar productos #2 y #3: Guía AFORE y Reto de Ahorro 90 Días</li>
+            <li>Iniciar Facebook/Instagram Ads con $500 MXN/semana de presupuesto</li>
+            <li>Activar TikTok diario — 1 video de 30-60 segundos con tip financiero</li>
+            <li>Recopilar primeros testimonios y casos de éxito para prueba social</li>
+            <li>Implementar email marketing con secuencia automatizada de bienvenida</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase fade-up">
+        <div class="phase-dot p3">3</div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-title">Expansión de Catálogo</span>
+            <span class="phase-weeks">Semanas 9–12</span>
+          </div>
+          <ul class="phase-tasks">
+            <li>Lanzar "Cómo usar INFONAVIT" y "Compra en San Diego sin quebrarte"</li>
+            <li>Lanzar programa de referidos — 10% de comisión por cliente recomendado</li>
+            <li>Incrementar presupuesto publicitario a $2,000 MXN/mes con ROAS validado</li>
+            <li>Primeros webinars gratuitos de captación: 1 por quincena, 45 minutos</li>
+            <li>Alianzas con contadores, asesores de crédito y grupos de ahorro locales</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase fade-up">
+        <div class="phase-dot p4">4</div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-title">Escala y Automatización</span>
+            <span class="phase-weeks">Meses 4–6</span>
+          </div>
+          <ul class="phase-tasks">
+            <li>Lanzar catálogo completo — todos los 10 productos disponibles</li>
+            <li>Automatizar embudos de venta con Make.com: lead magnet → email → venta</li>
+            <li>Crear membresía mensual "$99 MXN/mes" con contenido exclusivo</li>
+            <li>Bundles: "Kit Familiar Fronterizo" — 3 productos a precio especial</li>
+            <li>Colaboraciones con influencers de finanzas en TJ/BC con 5K–50K seguidores</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase fade-up">
+        <div class="phase-dot p5">5</div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-title">Consolidación y Nuevos Mercados</span>
+            <span class="phase-weeks">Meses 7–12</span>
+          </div>
+          <ul class="phase-tasks">
+            <li>Expandir a Mexicali, Ensenada, Tecate y San Luis RC con el mismo modelo</li>
+            <li>Curso insignia premium "Finanzas Fronterizas Completas" — $1,500–$2,500 MXN</li>
+            <li>Talleres B2B para RRHH de maquiladoras — $5,000–$15,000 MXN por sesión</li>
+            <li>Podcast semanal "El Peso y el Dólar" para posicionamiento como autoridad</li>
+            <li>Meta final: 500+ clientes, $150,000–$200,000 MXN en ingresos mensuales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="marketing-section" id="marketing">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">Estrategia de mercadeo</span>
+      <h2>Los canales que generan ventas<br>para esta audiencia</h2>
+      <p class="section-desc">Mix de canales orgánicos y pagados diseñado específicamente para llegar a clase media y baja en Tijuana.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon fb">📘</div>
+        <div class="mkt-title">Facebook & Instagram Ads</div>
+        <div class="mkt-desc">Anuncios segmentados por zona TJ, edad 25–50 años, interés en finanzas y trabajo en maquiladora. 3–5 posts por semana.</div>
+        <span class="mkt-tag red">$1,500–$3,000/mes</span>
+      </div>
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon tt">🎵</div>
+        <div class="mkt-title">TikTok Orgánico</div>
+        <div class="mkt-desc">Videos cortos de tips financieros fronterizos, errores comunes de dinero, antes/después. 1 video diario de 30–60 segundos.</div>
+        <span class="mkt-tag green">$0 — solo tiempo</span>
+      </div>
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon wa">💬</div>
+        <div class="mkt-title">WhatsApp Business</div>
+        <div class="mkt-desc">Lista de broadcast con tips semanales y oferta exclusiva cada 15 días. Canal de atención al cliente y ventas directas.</div>
+        <span class="mkt-tag blue">$299/mes API</span>
+      </div>
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon gads">🔍</div>
+        <div class="mkt-title">Google Ads (SEO/SEM)</div>
+        <div class="mkt-desc">Keywords: "cómo ahorrar en Tijuana", "INFONAVIT Tijuana", "AFORE", "presupuesto familiar México". Siempre activo.</div>
+        <span class="mkt-tag red">$1,000–$2,000/mes</span>
+      </div>
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon em">📧</div>
+        <div class="mkt-title">Email Marketing</div>
+        <div class="mkt-desc">Newsletter quincenal con mini-guías gratuitas y promoción de producto. Secuencia automática de bienvenida y nurturing.</div>
+        <span class="mkt-tag blue">$200/mes plataforma</span>
+      </div>
+      <div class="mkt-card fade-up">
+        <div class="mkt-icon ref">🤝</div>
+        <div class="mkt-title">Programa de Referidos</div>
+        <div class="mkt-desc">10% de comisión para clientes que recomienden productos. El canal de menor costo por adquisición de clientes.</div>
+        <span class="mkt-tag green">$0 costo base</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPORTUNIDADES -->
+<section class="opp-section" id="oportunidades">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag gold-tag">Oportunidades de negocio</span>
+      <h2>Más allá de los productos digitales</h2>
+      <p class="section-desc">GW Asesoría Financiera tiene múltiples palancas de crecimiento más allá de los 10 productos iniciales.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">💼</div>
+        <div class="opp-title">Talleres B2B para Maquiladoras</div>
+        <div class="opp-desc">Vender programas de bienestar financiero a RRHH de empresas manufactureras de Tijuana.</div>
+        <div class="opp-potential">$5,000–$15,000 MXN por sesión</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">🎓</div>
+        <div class="opp-title">Curso Insignia Premium</div>
+        <div class="opp-desc">"Finanzas Fronterizas Completas" — curso exhaustivo con certificado y soporte personalizado.</div>
+        <div class="opp-potential">$1,500–$2,500 MXN por alumno</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">📱</div>
+        <div class="opp-title">App Móvil de Presupuesto</div>
+        <div class="opp-desc">App bimoneda con calculadora de tipo de cambio en tiempo real y tracker de gastos fronterizo.</div>
+        <div class="opp-potential">$49 MXN/mes × 500 usuarios</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">🤝</div>
+        <div class="opp-title">Red de Afiliados</div>
+        <div class="opp-desc">50–100 afiliados vendiendo productos a cambio del 20–30% de comisión. Crecimiento exponencial sin más esfuerzo.</div>
+        <div class="opp-potential">Duplica ventas sin aumentar costo</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">🎙</div>
+        <div class="opp-title">Podcast "El Peso y el Dólar"</div>
+        <div class="opp-desc">Posicionamiento como autoridad en finanzas fronterizas + monetización con patrocinadores locales.</div>
+        <div class="opp-potential">$3,000–$10,000 MXN/episodio</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">📊</div>
+        <div class="opp-title">Consultoría 1:1</div>
+        <div class="opp-desc">Sesiones personalizadas de asesoría financiera vía Zoom para quienes quieren atención individual.</div>
+        <div class="opp-potential">$500–$1,500 MXN por hora</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">🌎</div>
+        <div class="opp-title">Expansión Regional</div>
+        <div class="opp-desc">Mismo modelo, otras ciudades fronterizas: Mexicali, Ensenada, Nogales, Ciudad Juárez, Nuevo Laredo.</div>
+        <div class="opp-potential">5× mercado total disponible</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">🏢</div>
+        <div class="opp-title">Franquicia Digital</div>
+        <div class="opp-desc">Licenciar el modelo a asesores financieros en otras ciudades. Ingresos pasivos por regalías del 15–20%.</div>
+        <div class="opp-potential">$2,000–$5,000 MXN/mes por franquicia</div>
+      </div>
+      <div class="opp-card fade-up">
+        <div class="opp-emoji">📧</div>
+        <div class="opp-title">Lista de Email como Activo</div>
+        <div class="opp-desc">5,000 suscriptores calificados = activo de negocio que genera ingresos predecibles en cada lanzamiento.</div>
+        <div class="opp-potential">$50,000–$150,000 MXN por lanzamiento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECCION FINANCIERA -->
+<section class="finance-section">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center;">
+      <span class="section-tag gold-tag">Proyección financiera</span>
+      <h2>Crecimiento mes a mes</h2>
+      <p class="section-desc text-center">Escenario conservador. Recuperación de inversión inicial estimada en mes 2–3.</p>
+    </div>
+    <div class="finance-grid">
+      <div class="fin-card fade-up">
+        <div class="fin-period">Mes 1</div>
+        <div class="fin-rev">$2K–$4K</div>
+        <div class="fin-lbl">Ingresos MXN</div>
+        <div class="fin-bar" style="width:15%;"></div>
+      </div>
+      <div class="fin-card fade-up">
+        <div class="fin-period">Mes 2</div>
+        <div class="fin-rev">$6K–$12K</div>
+        <div class="fin-lbl">Ingresos MXN</div>
+        <div class="fin-bar" style="width:30%;"></div>
+      </div>
+      <div class="fin-card fade-up">
+        <div class="fin-period">Mes 3</div>
+        <div class="fin-rev">$15K–$30K</div>
+        <div class="fin-lbl">Ingresos MXN</div>
+        <div class="fin-bar" style="width:50%;"></div>
+      </div>
+      <div class="fin-card fade-up">
+        <div class="fin-period">Mes 6</div>
+        <div class="fin-rev">$40K–$80K</div>
+        <div class="fin-lbl">Ingresos MXN</div>
+        <div class="fin-bar" style="width:75%;"></div>
+      </div>
+      <div class="fin-card fade-up">
+        <div class="fin-period">Mes 12</div>
+        <div class="fin-rev">$90K–$200K</div>
+        <div class="fin-lbl">Ingresos MXN</div>
+        <div class="fin-bar" style="width:100%;background:var(--gold);"></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;background:rgba(255,255,255,0.06);border:1px solid rgba(201,150,58,0.3);border-radius:12px;padding:20px 28px;text-align:center;" class="fade-up">
+      <p style="color:var(--gold);font-weight:700;font-size:14px;margin-bottom:6px;">Inversión inicial recomendada</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.7;">$5,000–$8,000 MXN — incluye dominio, hosting, herramientas de email, diseño de logo, presupuesto publicitario inicial y suscripciones. Recuperación estimada: mes 2–3.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner fade-up">
+    <h2>¿Listo para transformar tus finanzas fronterizas?</h2>
+    <p>Más de 10 productos diseñados específicamente para el contexto de Tijuana y la frontera. Empieza con el que más necesitas — precios desde $149 MXN.</p>
+    <a href="#productos" class="btn-white">Ver todos los productos →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">© 2026 GW Asesoría Financiera · Tijuana, Baja California, México</div>
+    <div class="footer-links">
+      <a href="#productos">Productos</a>
+      <a href="#roadmap">Plan</a>
+      <a href="#oportunidades">Negocio</a>
+      <a href="#marketing">Marketing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+}, {threshold: 0.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
